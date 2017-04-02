@@ -1,13 +1,13 @@
 //==============================================================================
-// Assignment 2 - Vehicle Records Class
+// Assignment 3 - Vehicle Records Class
 //==============================================================================
 /*
     File: VehicleRecords.hpp
-    Project: Assignment 2
+    Project: Assignment 3
     Author: Nathaniel Hoefer
     Student ID: X529U639
     Class: CS411 - Spring 2017
-	Date: 3/11/2017
+	Date: 4/2/2017
 
 ******************************************************************************/
 
@@ -35,7 +35,7 @@ public:
  	// 			Lines beginning with '#' are treated as comments
 	//		Postconditions: None
 	// 		Returns: Array containing all of the Vehicle objects
-	static std::vector<Vehicle> importVehicles(std::string file) throw (std::invalid_argument);
+	static std::vector<Vehicle *> importVehicles(std::string file) throw (std::invalid_argument);
 };
 
 #endif /* SRC_VEHICLERECORDS_HPP_ */

@@ -1,13 +1,13 @@
 //==============================================================================
-// Assignment 2 - Vehicle Records Class
+// Assignment 3 - Vehicle Records Class
 //==============================================================================
 /*
     File: VehicleRecords.hpp
-    Project: Assignment 2
+    Project: Assignment 3
     Author: Nathaniel Hoefer
     Student ID: X529U639
     Class: CS411 - Spring 2017
-	Date: 3/5/2017
+	Date: 4/2/2017
 
 ******************************************************************************/
 
@@ -75,7 +75,7 @@ namespace
 	}
 }
 
-std::vector<Vehicle> VehicleRecords::importVehicles(std::string file) throw (std::invalid_argument)
+std::vector<Vehicle *> VehicleRecords::importVehicles(std::string file) throw (std::invalid_argument)
 {
 	std::ifstream stream;
 	stream.open(file.c_str());
@@ -90,7 +90,7 @@ std::vector<Vehicle> VehicleRecords::importVehicles(std::string file) throw (std
 	std::string make, model, temp;
 	double engine, tankSize;
 	int cylinders, cityMPG, highwayMPG;
-	std::vector<Vehicle> vehicles;
+	std::vector<Vehicle *> vehicles;
 	int lineNum = 1;
 
 	// Stream in each line and trim
@@ -155,7 +155,7 @@ std::vector<Vehicle> VehicleRecords::importVehicles(std::string file) throw (std
 				throw std::invalid_argument(exc);
 			}
 			highwayMPG = std::atoi(temp.c_str());
-			vehicles.push_back(Vehicle(make, model, engine, cylinders, tankSize, cityMPG, highwayMPG));
+			vehicles.push_back(new Vehicle(make, model, engine, cylinders, tankSize, cityMPG, highwayMPG));
 		}
 		lineNum++;
 	}

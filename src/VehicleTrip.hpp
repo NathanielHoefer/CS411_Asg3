@@ -24,11 +24,13 @@
 class VehicleTrip
 {
 public:
-	VehicleTrip(Vehicle &vehicle, TripParameters &parms);
+	VehicleTrip(Vehicle *vehicle, TripParameters &parms);
+	VehicleTrip(VehicleTrip &trip);		// Copy constructor
+	~VehicleTrip();
 
 	// Accessors
 	TripParameters 	getParms();
-	Vehicle 	getVehicle();
+	const Vehicle *getVehicle();		// Normally wouldn't pass back pointer, but doing it for this assignment
 	double 		getFuelPurchased();
 	double 		getFuelConsumed();
 	double 		getCityMiles();
@@ -43,6 +45,9 @@ public:
 	//		Postconditions: Member variables are updated per calculations
 	void runTrip(std::vector<TripLeg> &legs);
 
+	// 	Overloaded assignment operator to properly handle the pointers
+	VehicleTrip & operator =(const VehicleTrip &rhs);
+
 	//	Overloaded << operater to stream out the following:
 	//		make << model << engineSize << engineCylinders << tanksize << cityMPG << highwayMPG
 	//		<< currentFuel << TripTime << FuelPurchase << FuelConsumed << GasStationCount
@@ -50,7 +55,7 @@ public:
 
 private:
 	TripParameters 	mParms;
-	Vehicle 	mVehicle;
+	Vehicle 	*mVehicle;
 	double 		mFuelPurchased;
 	double 		mFuelConsumed;
 	double 		mCityMiles;

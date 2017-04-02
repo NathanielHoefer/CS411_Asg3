@@ -1,0 +1,43 @@
+# Ignore blank lines and comment lines (begins with pound sign '#')
+	# Must also trim off any leading white space characters (' ', '\t', '\r', '\n')
+	# A line may be terminated with a LF ('\n') or a CRLF ('\r', '\n')
+
+# The vertical bar '|' is used as the field delimiter within each vehicle record
+
+# Table of Vehicle Records
+#   Column headings:
+#     Make|Model|EngineSize|EngineCylinders|TankSize|MpgCity|MpgHighway
+
+Chevrolet|Spark|1.2|4|10.5|28|36
+Chevrolet|Cruze|1.8|4|12.5|22|35
+Chevrolet|Sonic|1.8|4|12.0|25|35
+Chevrolet|Camaro|3.6|6|13.0|19|28
+Chevrolet|Suburban C1500|5.3|8|33.0|13|18
+Chevrolet|Suburban C2500|6.0|8|36.0|10|15
+Chrysler|Town & Country|3.6|6|12.5|22|29
+Chrysler|300|5.7|6|13.5|18|28
+Dodge|Grand Caravan|3.6|6|12.5|23|29
+Dodge|Challenger|5.7|8|13.0|16|25
+Dodge|Charger|5.7|8|13.0|17|26
+Ford|Fiesta|1.6|4| 9.5|29|39
+Ford|Focus|2.0|4|11.5|27|38
+Ford|Fusion|2.0|4|12.5|22|33
+Ford|Taurus|3.5|6|13.0|19|29
+Ford|Mustang|5.0|8|12.0|18|25
+Ford|E150 Wagon|5.4|8|33.5|14|17
+Ford|E350 Wagon|5.4|8|36.5| 9|16
+Ford|Expedition 4WD|5.4|8|19.0|13|19
+Ford|F150 Pickup 2WD|6.2|8|25.5|15|20
+Ford|F150 Pickup 4WD|6.2|8|23.0|14|19
+Honda|Civic|1.8|4|12.0|28|39
+Honda|Accord|3.5|6|12.5|21|34
+Hyundai|Accent|1.6|4|10.5|28|37
+Hyundai|Elantra|1.8|4|13.0|28|38
+Hyundai|Sonata|2.4|4|13.5|24|35
+Mazda|MAZDA3|2.0|4|11.0|24|33
+Mazda|MAZDA5|2.5|4|11.5|22|28
+Mazda|MAZDA6|3.7|6|12.0|18|27
+Toyota|Corolla|1.8|4|12.5|26|34
+Toyota|Sienna|2.7|4|13.0|19|24
+Toyota|Camry|3.5|6|13.5|21|31
+Toyota|4Runner|4.0|6|15.0|17|21

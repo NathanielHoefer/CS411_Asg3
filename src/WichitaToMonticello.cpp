@@ -54,7 +54,7 @@ static const string OUTPUT_FILE = "WichitaToMonticello-Results.txt";
 int main()
 {
 	cout << "========================================================" << endl;
-	cout << "           Wichita to Monticello - Assignment 2         " << endl;
+	cout << "           Wichita to Monticello - Assignment 3         " << endl;
 	cout << "========================================================" << endl;
 
 //	tripTesting();	// Used for running test cases

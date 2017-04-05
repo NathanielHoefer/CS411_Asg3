@@ -165,7 +165,7 @@ std::ostream & operator <<(std::ostream &lhs, VehicleTrip &rhs)
 {
 	std::stringstream stream;
 
-	lhs << rhs.mVehicle;
+	lhs << *rhs.mVehicle;
 	stream << rhs.mTripTime;
 	lhs << stream.str() + ",";
 	stream.str("");

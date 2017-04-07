@@ -19,8 +19,13 @@
 #include <fstream>
 #include <cstdlib>
 #include <stdexcept>
-
 #include "Vehicle.hpp"
+
+namespace vehicleRecordsNS
+{
+	static const std::string DLMTR = "|";
+}
+
 
 class VehicleRecords
 {
@@ -28,6 +33,7 @@ class VehicleRecords
 	VehicleRecords() {};
 
 public:
+
 
 	// Imports and creates vehicle objects from the file passed
 	// 		Preconditions: File Format:

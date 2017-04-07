@@ -1,13 +1,13 @@
 //==============================================================================
-// Assignment 2 - Trip Leg
+// Assignment 3 - Trip Leg
 //==============================================================================
 /*
 	File: TripLeg.hpp
-    Project: Assignment 2
+    Project: Assignment 3
     Author: Nathaniel Hoefer
     Student ID: X529U639
     Class: CS411 - Spring 2017
-	Date: 3/11/2017
+	Date: 2/18/2017
 
 ******************************************************************************/
 

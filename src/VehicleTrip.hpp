@@ -1,13 +1,13 @@
 //==============================================================================
-// Assignment 2 - VehicleTrip Class
+// Assignment 3 - VehicleTrip Class
 //==============================================================================
 /*
     File: VehicleTrip.hpp
-    Project: Assignment 2
+    Project: Assignment 3
     Author: Nathaniel Hoefer
     Student ID: X529U639
     Class: CS411 - Spring 2017
-	Date: 3/11/2017
+	Date: 4/7/2017
 
 ******************************************************************************/
 
@@ -20,6 +20,11 @@
 #include "TripLeg.hpp"
 #include "Vehicle.hpp"
 #include "TripParameters.hpp"
+
+namespace vehicleTripNS
+{
+	static const std::string DLMTR = "|";
+}
 
 class VehicleTrip
 {

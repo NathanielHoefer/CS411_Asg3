@@ -1,13 +1,13 @@
 //==============================================================================
-// Assignment 2 - WichitaToMonticello
+// Assignment 3 - WichitaToMonticello
 //==============================================================================
 /*
     File: WichitaToMonticello.cpp
-    Project: Assignment 2
+    Project: Assignment 3
     Author: Nathaniel Hoefer
     Student ID: X529U639
     Class: CS411 - Spring 2017
-	Date: 3/5/2017
+	Date: 4/7/2017
 
     Simulates a trip from Wichita to Monticello with a number of vehicles to
     determine which vehicles take the least/most time, require the least/most
@@ -15,7 +15,8 @@
     the vehicles and the parameters from the string constants provided at the
     beginning of this file. The results are printed to the console as well as to
     the file specified by the string constant OUTPUT_FILE. Helper functions and
-    Test drivers were moved to separate files in order to clean this file.
+    Test drivers were moved to separate files in order to clean this file. The
+    vehicles are now stored as dynamic pointers in a vector
 
     Notes: Input values have not been fully checked for values ranging far beyond
     reasonable values since it was not explicitly mentioned in the rubric.
@@ -42,14 +43,11 @@ void printResults(VehicleTrip shortestTime, VehicleTrip longestTime, VehicleTrip
 void printVehicleStats(VehicleTrip trip);
 void printToFile(VehicleTrip trip, ofstream &output);
 
-// Testing Function Prototypes
-void printExpectedStats(int testCase, double tankSize, int cityMPG, int highwayMPG, int tripTime, double fuelAddedCost,
-		double fuelUsedCost, double fuelAdded, double fuelUsed, double fuelRemaining, int fuelStops);
-
 // File name constants
 static const string VEHICLE_FILE = "WichitaToMonticello-Vehicles.txt";
 static const string PARMS_FILE = "WichitaToMonticello-Input.ini";
 static const string OUTPUT_FILE = "WichitaToMonticello-Results.txt";
+static const string MAIN_DLMTR = "|";
 
 int main()
 {
@@ -191,7 +189,7 @@ void printResults(VehicleTrip shortestTime, VehicleTrip longestTime,
 	output << "  # Vehicle arriving first" << endl;
 
 	cout << "========================================================" << endl;
-	cout << "   2. Vehicle arriving last at Jefferson's Monticello: " << endl;
+	cout << "   2. Vehicle arriving last at Jefferson's Monticello:  " << endl;
 	cout << "========================================================" << endl;
 	printVehicleStats(longestTime);
 	printToFile(longestTime, output);
@@ -243,27 +241,27 @@ void printVehicleStats(VehicleTrip trip)
 	double tankSize, currentFuel, fuelPurchased, fuelConsumed;
 
 	// Parses the results from stream
-	getline(results, temp, ',');
+	getline(results, temp, MAIN_DLMTR[0]);
 	make = temp;
-	getline(results, temp, ',');
+	getline(results, temp, MAIN_DLMTR[0]);
 	model = temp;
-	getline(results, temp, ',');
-	getline(results, temp, ',');
-	getline(results, temp, ',');
+	getline(results, temp, MAIN_DLMTR[0]);
+	getline(results, temp, MAIN_DLMTR[0]);
+	getline(results, temp, MAIN_DLMTR[0]);
 	tankSize = atof(temp.c_str());
-	getline(results, temp, ',');
+	getline(results, temp, MAIN_DLMTR[0]);
 	cityMPG = atoi(temp.c_str());
-	getline(results, temp, ',');
+	getline(results, temp, MAIN_DLMTR[0]);
 	highwayMPG = atoi(temp.c_str());
-	getline(results, temp, ',');
+	getline(results, temp, MAIN_DLMTR[0]);
 	currentFuel = atof(temp.c_str());
-	getline(results, temp, ',');
+	getline(results, temp, MAIN_DLMTR[0]);
 	tripTime = atoi(temp.c_str());
-	getline(results, temp, ',');
+	getline(results, temp, MAIN_DLMTR[0]);
 	fuelPurchased = atof(temp.c_str());
-	getline(results, temp, ',');
+	getline(results, temp, MAIN_DLMTR[0]);
 	fuelConsumed = atof(temp.c_str());
-	getline(results, temp, ',');
+	getline(results, temp, MAIN_DLMTR[0]);
 	gStationCnt = atoi(temp.c_str());
 
 	// Calculations for centering title
@@ -320,29 +318,29 @@ void printToFile(VehicleTrip trip, ofstream &output)
 	double engineSize, tankSize, currentFuel, fuelPurchased, fuelConsumed;
 
 	// Parses the results from stream
-	getline(results, temp, ',');
+	getline(results, temp, MAIN_DLMTR[0]);
 	make = temp;
-	getline(results, temp, ',');
+	getline(results, temp, MAIN_DLMTR[0]);
 	model = temp;
-	getline(results, temp, ',');
+	getline(results, temp, MAIN_DLMTR[0]);
 	engineSize = atof(temp.c_str());
-	getline(results, temp, ',');
+	getline(results, temp, MAIN_DLMTR[0]);
 	engineCylinders = atoi(temp.c_str());
-	getline(results, temp, ',');
+	getline(results, temp, MAIN_DLMTR[0]);
 	tankSize = atof(temp.c_str());
-	getline(results, temp, ',');
+	getline(results, temp, MAIN_DLMTR[0]);
 	cityMPG = atoi(temp.c_str());
-	getline(results, temp, ',');
+	getline(results, temp, MAIN_DLMTR[0]);
 	highwayMPG = atoi(temp.c_str());
-	getline(results, temp, ',');
+	getline(results, temp, MAIN_DLMTR[0]);
 	currentFuel = atof(temp.c_str());
-	getline(results, temp, ',');
+	getline(results, temp, MAIN_DLMTR[0]);
 	tripTime = atoi(temp.c_str());
-	getline(results, temp, ',');
+	getline(results, temp, MAIN_DLMTR[0]);
 	fuelPurchased = atof(temp.c_str());
-	getline(results, temp, ',');
+	getline(results, temp, MAIN_DLMTR[0]);
 	fuelConsumed = atof(temp.c_str());
-	getline(results, temp, ',');
+	getline(results, temp, MAIN_DLMTR[0]);
 	gStationCnt = atoi(temp.c_str());
 
 	// Calculations for formatted time
@@ -359,54 +357,14 @@ void printToFile(VehicleTrip trip, ofstream &output)
 	// Format:
 	//	Make|Model|EngineSize|EngineCylinders|TankSize|MpgCity|MpgHighway|Time(minutes)|Time(d.hh:mm)|
 	//	CostFueldAdded|CostFuelUsed|FuelAdded|FuelUsed|FuelRemaining|FuelStops
-	output << left << setfill(' ') << setw(9) << make << "|" << setw(15) << model << "|";
-	output << right << fixed << setfill('0') << setw(4) << setprecision(1) << engineSize << "|";
-	output << engineCylinders << "|";
-	output << setw(4) << tankSize << "|";
-	output << setw(2) << cityMPG << "|" << setw(2) << highwayMPG << "|";
-	output << setw(4) << tripTime << "|";
-	output << days << "." << setfill('0') << right << setw(2) << hours << ":" << setw(2) << minutes << "|";
-	output << setprecision(2) << setw(7) << fuelAddedCost << "|" << setw(7) << fuelConsumedCost << "|";
-	output << setprecision(4) << setw(9) << fuelConsumed << "|" << setw(9) << fuelPurchased << "|";
-	output << setw(9) << currentFuel << "|" << setw(2) << gStationCnt;
+	output << left << setfill(' ') << setw(9) << make << MAIN_DLMTR << setw(15) << model << MAIN_DLMTR;
+	output << right << fixed << setfill('0') << setw(4) << setprecision(1) << engineSize << MAIN_DLMTR;
+	output << engineCylinders << MAIN_DLMTR;
+	output << setw(4) << tankSize << MAIN_DLMTR;
+	output << setw(2) << cityMPG << MAIN_DLMTR << setw(2) << highwayMPG << MAIN_DLMTR;
+	output << setw(4) << tripTime << MAIN_DLMTR;
+	output << days << "." << setfill('0') << right << setw(2) << hours << ":" << setw(2) << minutes << MAIN_DLMTR;
+	output << setprecision(2) << setw(7) << fuelAddedCost << MAIN_DLMTR << setw(7) << fuelConsumedCost << MAIN_DLMTR;
+	output << setprecision(4) << setw(9) << fuelPurchased << MAIN_DLMTR << fuelConsumed << MAIN_DLMTR << setw(9);
+	output << setw(9) << currentFuel << MAIN_DLMTR << setw(2) << gStationCnt;
 }
-
-// Used with tripTesting() for outputting the expected values for the test
-//		Preconditions: None
-//		Postconditions: Entered values are printed in the same format as the printVehicleStats()
-void printExpectedStats(int testCase, double tankSize, int cityMPG, int highwayMPG, int tripTime, double fuelAddedCost,
-		double fuelUsedCost, double fuelAdded, double fuelUsed, double fuelRemaining, int fuelStops)
-{
-	// Calculations for formatted time
-	int days, hours, minutes, remainingTime;
-	remainingTime = tripTime;
-	days = tripTime / (24 * 60);
-	remainingTime = tripTime % (24 * 60);
-	hours = remainingTime / 60;
-	minutes = remainingTime % 60;
-
-	cout << "========================================================" << endl;
-	cout << "                     Test Case: " << testCase 			<< endl;
-	cout << "========================================================" << endl;
-	cout << "                       Expected: " << endl;
-	cout << "--------------------------------------------------------" << endl;
-	cout << left << fixed << setprecision(2);
-	cout << "Tank Size = " << setw(6) << tankSize;
-	cout << "gal   City MPG = " << setw(5) << cityMPG;
-	cout << "Highway MPG = " << highwayMPG << endl;;
-	cout << "--------------------------------------------------------" << endl;
-	cout << "Trip time(minutes) = " << setw(7) << tripTime;
-	cout << "Trip time(d.hh:mm) = " << days << "." << setfill('0') << right
-			<< setw(2) << hours << ":" << setw(2) << minutes << endl;
-	cout << "--------------------------------------------------------" << endl;
-	cout << left << setfill(' ');
-	cout << "Trip cost based on fuel added = $" << fuelAddedCost << endl;
-	cout << "Trip cost based on fuel used  = $" << fuelUsedCost << endl;
-	cout << "--------------------------------------------------------" << endl;
-	cout << "Fuel added = " << setw(8) << setprecision(4) << fuelAdded
-			<< "gal    Fuel remaining = " << fuelRemaining << " gal" << endl;
-	cout << "Fuel used  = " << setw(8) << fuelUsed;
-	cout << "gal    Fuel stops     = " << fuelStops << endl;
-	cout << "========================================================" << endl;
-}
-

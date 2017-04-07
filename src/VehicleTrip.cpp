@@ -1,17 +1,20 @@
 //==============================================================================
-// Assignment 2 - VehicleTrip Class
+// Assignment 3 - VehicleTrip Class
 //==============================================================================
 /*
     File: VehicleTrip.cpp
-    Project: Assignment 2
+    Project: Assignment 3
     Author: Nathaniel Hoefer
     Student ID: X529U639
     Class: CS411 - Spring 2017
-	Date: 3/11/2017
+	Date: 4/7/2017
 
 ******************************************************************************/
 
 #include "VehicleTrip.hpp"
+
+using std::string;
+using vehicleTripNS::DLMTR;
 
 VehicleTrip::VehicleTrip(Vehicle *vehicle, TripParameters &parms)
 {
@@ -158,6 +161,15 @@ VehicleTrip & VehicleTrip::operator =(const VehicleTrip &rhs)
 	} else {
 		mVehicle = rhs.mVehicle;
 	}
+
+	// Assigns the remaining trip elements
+	mFuelPurchased = rhs.mFuelPurchased;
+	mFuelConsumed = rhs.mFuelConsumed;
+	mCityMiles = rhs.mCityMiles;
+	mHighwayMiles = rhs.mHighwayMiles;
+	mDriveTime = rhs.mDriveTime;
+	mTripTime = rhs.mTripTime;
+	mGStationCnt = rhs.mGStationCnt;
 	return *this;
 }
 
@@ -167,15 +179,15 @@ std::ostream & operator <<(std::ostream &lhs, VehicleTrip &rhs)
 
 	lhs << *rhs.mVehicle;
 	stream << rhs.mTripTime;
-	lhs << stream.str() + ",";
+	lhs << stream.str() + DLMTR;
 	stream.str("");
 	stream.clear();
 	stream << rhs.mFuelPurchased;
-	lhs << stream.str() + ",";
+	lhs << stream.str() + DLMTR;
 	stream.str("");
 	stream.clear();
 	stream << rhs.mFuelConsumed;
-	lhs << stream.str() + ",";
+	lhs << stream.str() + DLMTR;
 	stream.str("");
 	stream.clear();
 	stream << rhs.mGStationCnt;

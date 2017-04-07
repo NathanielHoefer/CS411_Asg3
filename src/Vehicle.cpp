@@ -1,9 +1,9 @@
 //==============================================================================
-// Assignment 2 - Vehicle Class
+// Assignment 3 - Vehicle Class
 //==============================================================================
 /*
     File: Vehicle.cpp
-    Project: Assignment 2
+    Project: Assignment 3
     Author: Nathaniel Hoefer
     Student ID: X529U639
     Class: CS411 - Spring 2017
@@ -13,6 +13,7 @@
 
 #include "Vehicle.hpp"
 
+using tripLegNS::DLMTR;
 using std::string;
 
 Vehicle::Vehicle()
@@ -89,29 +90,29 @@ std::ostream & operator <<(std::ostream &lhs, const Vehicle &rhs)
 	std::stringstream stream;
 
 	// Delineates data with commas
-	lhs << rhs.mMake + ",";
-	lhs << rhs.mModel + ",";
+	lhs << rhs.mMake + DLMTR;
+	lhs << rhs.mModel + DLMTR;
 	stream << rhs.mEngine;
-	lhs << stream.str() + ",";
+	lhs << stream.str() + DLMTR;
 	stream.str("");
 	stream.clear();
 	stream << rhs.mCylinderCnt;
-	lhs << stream.str() + ",";
+	lhs << stream.str() + DLMTR;
 	stream.str("");
 	stream.clear();
 	stream << rhs.mTankSize;
-	lhs << stream.str() + ",";
+	lhs << stream.str() + DLMTR;
 	stream.str("");
 	stream.clear();
 	stream << rhs.mCityMPG;
-	lhs << stream.str() + ",";
+	lhs << stream.str() + DLMTR;
 	stream.str("");
 	stream.clear();
 	stream << rhs.mHighwayMPG;
-	lhs << stream.str() + ",";
+	lhs << stream.str() + DLMTR;
 	stream.str("");
 	stream.clear();
 	stream << rhs.mCurrentFuel;
-	lhs << stream.str() + ",";
+	lhs << stream.str() + DLMTR;
 	return lhs;
 }

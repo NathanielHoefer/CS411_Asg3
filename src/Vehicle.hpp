@@ -1,9 +1,9 @@
 //==============================================================================
-// Assignment 2 - Vehicle Class
+// Assignment 3 - Vehicle Class
 //==============================================================================
 /*
 	File: Vehicle.hpp
-    Project: Assignment 2
+    Project: Assignment 3
     Author: Nathaniel Hoefer
     Student ID: X529U639
     Class: CS411 - Spring 2017
@@ -17,6 +17,11 @@
 #include <string>
 #include <sstream>
 #include "TripLeg.hpp"
+
+namespace tripLegNS
+{
+	static const std::string DLMTR = "|";
+}
 
 class Vehicle
 {

@@ -1,9 +1,9 @@
 //==============================================================================
-// Assignment 2 - TripLeg Class
+// Assignment 3 - TripLeg Class
 //==============================================================================
 /*
     File: TripLeg.cpp
-    Project: Assignment 2
+    Project: Assignment 3
     Author: Nathaniel Hoefer
     Student ID: X529U639
     Class: CS411 - Spring 2017
